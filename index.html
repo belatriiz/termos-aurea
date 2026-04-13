@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos Comerciais · Áurea Studio de Design</title>
+  <meta name="description" content="Tudo que você precisa saber antes de iniciar um projeto com a Áurea Studio de Design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface2: #1e1e1e;
+      --pink: #FF2F6D;
+      --pink-soft: #ff6fa3;
+      --purple: #9900F1;
+      --purple-soft: #bb55f7;
+      --amber: #FFBD4D;
+      --text: #f0f0f0;
+      --muted: #888;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 56px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(153,0,241,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,47,109,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      border: 1px solid rgba(255,47,109,0.4);
+      padding: 4px 14px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 30%, var(--pink-soft) 70%, var(--purple-soft));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .hero-sub { font-size: 15px; color: var(--muted); max-width: 520px; }
+    .hero-meta { margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap; }
+    .hero-meta span { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .hero-meta span::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--purple-soft); display: block; }
+
+    /* TOC */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+    }
+    .toc-title { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 16px; }
+    .toc-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 6px 32px; counter-reset: item; }
+    .toc-list li { counter-increment: item; }
+    .toc-list li::before { content: counter(item, decimal-leading-zero) '. '; font-size: 11px; color: var(--purple-soft); font-weight: 500; }
+    .toc-list li a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .toc-list li a:hover { color: var(--pink-soft); }
+
+    /* SECTIONS */
+    section { margin-bottom: 52px; }
+    .section-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .section-num { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--pink); font-weight: 400; letter-spacing: 0.05em; min-width: 36px; padding-top: 4px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff; line-height: 1.2; }
+    .section-body { padding-left: 52px; }
+    .section-body p { color: #c0c0c0; margin-bottom: 14px; }
+
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; transition: border-color 0.2s; }
+    .card:hover { border-color: rgba(153,0,241,0.35); }
+    .card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 8px; }
+    .card-value { font-size: 15px; font-weight: 500; color: #f0f0f0; line-height: 1.4; }
+
+    /* HIGHLIGHT BOXES */
+    .highlight-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin-bottom: 16px; }
+    .highlight-box.pink-accent { border-left: 3px solid var(--pink); }
+    .highlight-box.purple-accent { border-left: 3px solid var(--purple); }
+    .highlight-box.amber-accent { border-left: 3px solid var(--amber); }
+    .hb-title { font-size: 13px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+    .hb-body { font-size: 14px; color: #999; line-height: 1.6; }
+
+    /* LISTS */
+    .item-list { list-style: none; margin-bottom: 16px; }
+    .item-list li { font-size: 14px; color: #c0c0c0; padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; }
+    .item-list li:last-child { border-bottom: none; }
+    .item-list li::before { content: ''; width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: var(--pink); margin-top: 8px; }
+
+    /* ALERT */
+    .alert { display: flex; gap: 12px; background: rgba(255,189,77,0.07); border: 1px solid rgba(255,189,77,0.2); border-radius: 10px; padding: 16px 18px; margin-bottom: 16px; }
+    .alert-icon { font-size: 16px; min-width: 20px; }
+    .alert-text { font-size: 14px; color: #aaa; line-height: 1.6; }
+    .alert-text strong { color: var(--amber); font-weight: 500; }
+
+    /* PROCESS */
+    .process-track { position: relative; padding: 8px 0 24px; margin-bottom: 20px; }
+    .process-line { position: absolute; top: 28px; left: 28px; right: 28px; height: 2px; background: linear-gradient(90deg, var(--pink) 0%, var(--purple) 100%); opacity: 0.3; border-radius: 2px; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; position: relative; }
+    .ps { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+    .ps-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; position: relative; z-index: 1; flex-shrink: 0; }
+    .ps-circle.pink-c { background: rgba(255,47,109,0.12); border: 1.5px solid rgba(255,47,109,0.4); }
+    .ps-circle.purple-c { background: rgba(153,0,241,0.12); border: 1.5px solid rgba(153,0,241,0.4); }
+    .ps-label { font-size: 12px; font-weight: 500; color: #e0e0e0; line-height: 1.3; }
+    .ps-sub { font-size: 11px; color: var(--muted); line-height: 1.3; margin-top: -6px; }
+
+    /* CALENDAR */
+    .calendar-row { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .cal-day { width: 52px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); text-align: center; }
+    .cal-day .day-name { background: var(--surface2); padding: 4px 0; font-weight: 500; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; color: #aaa; }
+    .cal-day .day-icon { padding: 8px 0; font-size: 18px; background: var(--surface); }
+    .cal-day.active .day-name { background: rgba(153,0,241,0.25); color: var(--purple-soft); }
+    .cal-day.active .day-icon { background: rgba(153,0,241,0.08); }
+    .cal-day.off .day-name { background: rgba(255,255,255,0.03); color: #444; }
+    .cal-day.off .day-icon { background: rgba(0,0,0,0.2); opacity: 0.4; }
+
+    /* PAYMENT */
+    .payment-methods { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-bottom: 16px; }
+    .pay-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; transition: border-color 0.2s; }
+    .pay-card:hover { border-color: rgba(255,47,109,0.3); }
+    .pay-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(255,47,109,0.1); flex-shrink: 0; }
+    .pay-name { font-size: 13px; font-weight: 500; color: #e0e0e0; line-height: 1.3; }
+
+    /* NF BADGE */
+    .nf-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(153,0,241,0.1); border: 1px solid rgba(153,0,241,0.3); border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; font-size: 13px; color: var(--purple-soft); }
+
+    /* FOOTER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .footer { text-align: center; padding: 40px 0 0; border-top: 1px solid var(--border); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 28px; font-style: italic; background: linear-gradient(135deg, var(--pink), var(--purple-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
+    .footer-sub { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--pink-soft); }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .section-body { padding-left: 0; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-line { display: none; }
+      .toc-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="badge">Termos Comerciais</div>
+    <h1>Como trabalhamos<br>juntos.</h1>
+    <p class="hero-sub">Tudo que você precisa saber antes de iniciar um projeto com a Áurea Studio de Design. Transparência é parte do nosso processo.</p>
+    <div class="hero-meta">
+      <span>Versão 2.0 — 2025</span>
+      <span>Beatriz · Fundadora</span>
+      <span>Áurea Studio de Design</span>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">Índice</div>
+    <ol class="toc-list">
+      <li><a href="#briefing">Briefing e início do projeto</a></li>
+      <li><a href="#prazos">Datas e disponibilidade</a></li>
+      <li><a href="#revisoes">Revisões</a></li>
+      <li><a href="#pagamento">Pagamento</a></li>
+      <li><a href="#cancelamento">Cancelamento e reembolso</a></li>
+      <li><a href="#entrega">Entrega dos arquivos</a></li>
+      <li><a href="#creditos">Créditos e portfólio</a></li>
+      <li><a href="#urgencia">Pedidos urgentes</a></li>
+      <li><a href="#contato">Comunicação</a></li>
+    </ol>
+  </nav>
+
+  <section id="briefing">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Briefing e início do projeto</h2>
+    </div>
+    <div class="section-body">
+      <p>O processo começa com a <strong style="color:#fff">Imersão Áurea</strong> — nosso diagnóstico estratégico antes de qualquer criação. Entendemos seu servidor, marca ou negócio antes de abrir o Photoshop.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-label">Passo 1</div><div class="card-value">Preenchimento do briefing completo</div></div>
+        <div class="card"><div class="card-label">Passo 2</div><div class="card-value">Alinhamento de expectativas e escopo</div></div>
+        <div class="card"><div class="card-label">Passo 3</div><div class="card-value">Confirmação do pagamento</div></div>
+        <div class="card"><div class="card-label">Passo 4</div><div class="card-value">Início da produção criativa</div></div>
+      </div>
+      <div class="highlight-box purple-accent">
+        <div class="hb-title">Briefing incompleto = projeto pausado</div>
+        <div class="hb-body">O projeto só entra em produção após o recebimento do briefing completo e confirmação do pagamento. Projetos com informações insuficientes ficam em espera até a entrega dos materiais necessários.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prazos">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Datas e disponibilidade</h2>
+    </div>
+    <div class="section-body">
+      <p>Não trabalhamos com prazo de entrega fixo. Ao contratar, você recebe uma <strong style="color:#fff">data de início</strong> — e a partir daí, o projeto acontece junto com você.</p>
+      <div class="process-track">
+        <div class="process-line"></div>
+        <div class="process-steps">
+          <div class="ps"><div class="ps-circle pink-c">📅</div><div class="ps-label">Data de início confirmada</div><div class="ps-sub">Você sabe exatamente quando começa</div></div>
+          <div class="ps"><div class="ps-circle purple-c">✏️</div><div class="ps-label">Etapas enviadas em tempo real</div><div class="ps-sub">Cada parte chega pra você aprovar</div></div>
+          <div class="ps"><div class="ps-circle pink-c">💬</div><div class="ps-label">Você participa ativamente</div><div class="ps-sub">Feedbacks moldam a criação</div></div>
+          <div class="ps"><div class="ps-circle purple-c">✨</div><div class="ps-label">Entrega no tempo certo</div><div class="ps-sub">Cada projeto tem seu ritmo único</div></div>
+        </div>
+      </div>
+      <div class="highlight-box pink-accent">
+        <div class="hb-title">O tempo depende de você também</div>
+        <div class="hb-body">Como o cliente é parte ativa do processo, o andamento do projeto acompanha o ritmo dos feedbacks. Quanto mais ágil o retorno, mais fluida a criação.</div>
+      </div>
+      <p style="margin-bottom: 12px; font-size: 13px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500;">Dias de atendimento</p>
+      <div class="calendar-row">
+        <div class="cal-day active"><div class="day-name">Seg</div><div class="day-icon">💜</div></div>
+        <div class="cal-day active"><div class="day-name">Ter</div><div class="day-icon">💜</div></div>
+        <div class="cal-day active"><div class="day-name">Qua</div><div class="day-icon">💜</div></div>
+        <div class="cal-day active"><div class="day-name">Qui</div><div class="day-icon">💜</div></div>
+        <div class="cal-day active"><div class="day-name">Sex</div><div class="day-icon">💜</div></div>
+        <div class="cal-day off"><div class="day-name">Sáb</div><div class="day-icon">🚫</div></div>
+        <div class="cal-day off"><div class="day-name">Dom</div><div class="day-icon">🚫</div></div>
+      </div>
+      <div class="alert">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-text"><strong>Não trabalhamos aos finais de semana e feriados.</strong> Mensagens e solicitações recebidas nesses dias serão atendidas no próximo dia útil.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="revisoes">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Revisões</h2>
+    </div>
+    <div class="section-body">
+      <p>Cada projeto inclui rodadas de revisão dentro do escopo contratado. Revisões fora do escopo ou mudanças de briefing após o início da produção são cobradas à parte.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-label">Artes avulsas</div><div class="card-value">2 revisões incluídas</div></div>
+        <div class="card"><div class="card-label">Identidade visual</div><div class="card-value">3 revisões incluídas</div></div>
+        <div class="card"><div class="card-label">Motion / GIF</div><div class="card-value">2 revisões incluídas</div></div>
+        <div class="card"><div class="card-label">Revisão extra</div><div class="card-value">Valor acordado previamente</div></div>
+      </div>
+      <div class="highlight-box pink-accent">
+        <div class="hb-title">O que conta como revisão?</div>
+        <div class="hb-body">Ajustes de cor, texto, tamanho ou posicionamento dentro do escopo original. Mudança de conceito, estilo ou adição de novos elementos não previstos no briefing são considerados escopo adicional.</div>
+      </div>
+      <p>Após a aprovação final pelo cliente, qualquer alteração solicitada será tratada como novo pedido.</p>
+    </div>
+  </section>
+
+  <section id="pagamento">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Pagamento</h2>
+    </div>
+    <div class="section-body">
+      <p>Todos os projetos são pagos <strong style="color:#fff">100% no início</strong>, antes do começo da produção.</p>
+      <div class="payment-methods">
+        <div class="pay-card"><div class="pay-icon">⚡</div><div class="pay-name">PIX</div></div>
+        <div class="pay-card"><div class="pay-icon">💳</div><div class="pay-name">Cartão de crédito parcelado</div></div>
+        <div class="pay-card"><div class="pay-icon">🏦</div><div class="pay-name">Transferência bancária</div></div>
+        <div class="pay-card"><div class="pay-icon">🌐</div><div class="pay-name">PayPal</div></div>
+      </div>
+      <div class="highlight-box amber-accent">
+        <div class="hb-title">Taxas de transferência</div>
+        <div class="hb-body">Qualquer taxa gerada pelo método de pagamento escolhido é de total responsabilidade do cliente. Certifique-se de enviar o valor integral do projeto.</div>
+      </div>
+      <div class="nf-badge">🧾 Emitimos Nota Fiscal mediante solicitação do cliente.</div>
+    </div>
+  </section>
+
+  <section id="cancelamento">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Cancelamento e reembolso</h2>
+    </div>
+    <div class="section-body">
+      <ul class="item-list">
+        <li>Cancelamento antes do início da produção: reembolso integral do valor pago.</li>
+        <li>Cancelamento após o início da produção: reembolso proporcional descontando as horas já trabalhadas.</li>
+        <li>Não há reembolso após a entrega da primeira versão aprovada pelo cliente.</li>
+        <li>Projetos pausados por falta de retorno do cliente por mais de 15 dias serão movidos ao final da fila de produção, com o prazo de início realinhado.</li>
+      </ul>
+      <div class="highlight-box amber-accent">
+        <div class="hb-title">Falta de retorno por 30 dias</div>
+        <div class="hb-body">Se o cliente ficar mais de 30 dias corridos sem qualquer retorno, sem justificativa, o projeto será encerrado e entendido como desistência. Os valores pagos não serão reembolsados.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="entrega">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Entrega dos arquivos</h2>
+    </div>
+    <div class="section-body">
+      <p>Todos os arquivos finais são entregues em formatos otimizados para uso, organizados, nomeados corretamente e compactados em pasta para facilitar o recebimento.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-label">Formato padrão</div><div class="card-value">PNG, JPG em alta resolução</div></div>
+        <div class="card"><div class="card-label">Animações</div><div class="card-value">GIF, MP4 ou WebM</div></div>
+        <div class="card"><div class="card-label">Editáveis</div><div class="card-value">PSD, AI (mediante contrato)</div></div>
+        <div class="card"><div class="card-label">Organização</div><div class="card-value">Pasta compactada (.zip)</div></div>
+        <div class="card"><div class="card-label">Entrega via</div><div class="card-value">Google Drive ou WeTransfer</div></div>
+      </div>
+      <p>O cliente tem 7 dias após a entrega para reportar problemas técnicos nos arquivos. Após esse período, qualquer ajuste será cobrado.</p>
+      <div class="highlight-box pink-accent">
+        <div class="hb-title">Suporte pós-entrega</div>
+        <div class="hb-body">7 dias de suporte incluídos para ajustes pontuais relacionados ao projeto entregue. Não inclui novos pedidos ou mudanças de escopo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="creditos">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Créditos e portfólio</h2>
+    </div>
+    <div class="section-body">
+      <p>A Áurea Studio reserva o direito de utilizar os trabalhos realizados para divulgação em portfólio, redes sociais e materiais de apresentação, salvo acordo de confidencialidade previamente firmado.</p>
+      <ul class="item-list">
+        <li>Ao contratar, o cliente autoriza o uso das artes para fins de portfólio e divulgação da Áurea Studio.</li>
+        <li>Caso o cliente não deseje a divulgação, deve informar antes do início do projeto. Pode haver taxa adicional pela cláusula de exclusividade.</li>
+        <li>Os créditos da arte pertencem à Áurea Studio mesmo após a entrega ao cliente.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="urgencia">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Pedidos urgentes</h2>
+    </div>
+    <div class="section-body">
+      <p>Pedidos com data de início imediata são aceitos mediante disponibilidade de agenda e aplicação de taxa de urgência.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-label">Início em até 24h</div><div class="card-value">+50% sobre o valor do projeto</div></div>
+        <div class="card"><div class="card-label">Início em até 48h</div><div class="card-value">+30% sobre o valor do projeto</div></div>
+      </div>
+      <div class="alert">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-text"><strong>Urgência não garante disponibilidade.</strong> Confirme com antecedência se há agenda disponível antes de acionar o modo urgente.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Comunicação</h2>
+    </div>
+    <div class="section-body">
+      <p>Todo o contato é feito via Discord ou Instagram. Não trabalhamos com e-mail como canal principal.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-label">Discord</div><div class="card-value">Canal principal de atendimento</div></div>
+        <div class="card"><div class="card-label">Instagram</div><div class="card-value">@aureastudiodesign</div></div>
+        <div class="card"><div class="card-label">Horário</div><div class="card-value">Seg a Sex, 13h–20h</div></div>
+        <div class="card"><div class="card-label">Retorno</div><div class="card-value">Em até 24h úteis</div></div>
+      </div>
+      <p>Pedidos e solicitações fora do horário comercial serão respondidos no próximo dia útil.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <div class="footer">
+    <div class="footer-logo">Áurea</div>
+    <div class="footer-sub">studio de design · @aureastudiodesign</div>
+    <div class="footer-links">
+      <a href="https://www.behance.net/aureadodesign" target="_blank">Portfólio Behance</a>
+      <a href="https://www.instagram.com/aureastudiodesign" target="_blank">Instagram</a>
+      <a href="https://aureastudio.gitbook.io/aureastudio-docs" target="_blank">Documentação</a>
+    </div>
+    <p style="font-size:12px; color:#444; margin-top:24px;">© 2025 Áurea Studio de Design · Todos os direitos reservados</p>
+  </div>
+
+</div>
+</body>
+</html>
